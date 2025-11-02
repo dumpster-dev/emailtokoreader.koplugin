@@ -7,7 +7,7 @@ local logger = require("logger")
 -- Load config
 local config_path = require("ffi/util").joinPath(
     require("datastorage"):getDataDir(), 
-    "plugins/sendtokoreader.koplugin/config.lua"
+    "plugins/emailtokoreader.koplugin/config.lua"
 )
 
 local config = {}
@@ -26,17 +26,17 @@ else
     }
 end
 
-local SendToKOReader = WidgetContainer:extend{
-    name = "sendtokoreader",
+local emailtokoreader = WidgetContainer:extend{
+    name = "emailtokoreader",
     is_doc_only = false,
 }
 
-function SendToKOReader:init()
+function emailtokoreader:init()
     self.ui.menu:registerToMainMenu(self)
 end
 
-function SendToKOReader:addToMainMenu(menu_items)
-    menu_items.sendtokoreader = {
+function emailtokoreader:addToMainMenu(menu_items)
+    menu_items.emailtokoreader = {
         text = _("Email to KOReader"),
         sorting_hint = "tools",
         sub_item_table = {
@@ -120,7 +120,7 @@ function SendToKOReader:addToMainMenu(menu_items)
     }
 end
 
-function SendToKOReader:showSettings()
+function emailtokoreader:showSettings()
     local InputDialog = require("ui/widget/inputdialog")
     local MultiInputDialog = require("ui/widget/multiinputdialog")
     local logger = require("logger")
@@ -128,7 +128,7 @@ function SendToKOReader:showSettings()
     -- Create settings dialog
     local settings_dialog
     settings_dialog = MultiInputDialog:new{
-        title = _("Send-to-KOReader Settings"),
+        title = _("Mail to KOReader Settings"),
         fields = {
             {
                 text = config.email or "",
@@ -225,7 +225,7 @@ function SendToKOReader:showSettings()
     settings_dialog:onShowKeyboard()
 end
 
-function SendToKOReader:testConnection()
+function emailtokoreader:testConnection()
     UIManager:show(InfoMessage:new{
         text = _("Testing connection..."),
         timeout = 1,
@@ -268,7 +268,7 @@ function SendToKOReader:testConnection()
     end)
 end
 
-function SendToKOReader:checkInbox()
+function emailtokoreader:checkInbox()
     UIManager:show(InfoMessage:new{
         text = _("Checking inbox...\nThis may take 10-20 seconds."),
         timeout = 2,
@@ -330,7 +330,7 @@ function SendToKOReader:checkInbox()
     end)
 end
 
-function SendToKOReader:fetchEmails()
+function emailtokoreader:fetchEmails()
     -- Base64 decode function
     local function base64_decode(data)
         local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
@@ -681,4 +681,4 @@ function SendToKOReader:fetchEmails()
     return {success = true, downloaded = downloaded, files = downloaded_files}
 end
 
-return SendToKOReader
+return emailtokoreader

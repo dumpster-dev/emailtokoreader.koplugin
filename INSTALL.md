@@ -29,8 +29,8 @@ Before installing, ensure you have:
 ### Method 1: USB Connection (Recommended)
 
 1. **Download Plugin**
-   * Get `sendtokoreader.koplugin.zip`
-   * Extract to get `sendtokoreader.koplugin` folder
+   * Get `emailtokoreader.koplugin.zip`
+   * Extract to get `emailtokoreader.koplugin` folder
 
 2. **Connect Device**
    * Connect e-reader to computer via USB
@@ -44,8 +44,8 @@ Before installing, ensure you have:
      - **PocketBook**: `/mnt/ext1/applications/koreader/plugins/`
    
 4. **Paste Folder**
-   * Copy the entire `sendtokoreader.koplugin` folder
-   * Final path should be: `.../plugins/sendtokoreader.koplugin/`
+   * Copy the entire `emailtokoreader.koplugin` folder
+   * Final path should be: `.../plugins/emailtokoreader.koplugin/`
 
 5. **Safely Eject**
    * Eject device from computer
@@ -61,10 +61,10 @@ For users comfortable with command line:
 
 ```bash
 # Copy to Kindle via SSH
-scp -r sendtokoreader.koplugin root@192.168.x.x:/mnt/us/koreader/plugins/
+scp -r emailtokoreader.koplugin root@192.168.x.x:/mnt/us/koreader/plugins/
 
 # Copy to Kobo via SSH  
-scp -r sendtokoreader.koplugin root@192.168.x.x:/mnt/onboard/.adds/koreader/plugins/
+scp -r emailtokoreader.koplugin root@192.168.x.x:/mnt/onboard/.adds/koreader/plugins/
 ```
 
 Replace `192.168.x.x` with your device's IP address.
@@ -221,7 +221,7 @@ mkdir -p /mnt/us/EmailBooks/
 **Issue**: Don't see "Email to KOReader" in Tools menu
 
 **Solutions**:
-1. Verify folder name is exactly: `sendtokoreader.koplugin`
+1. Verify folder name is exactly: `emailtokoreader.koplugin`
 2. Check folder is in correct plugins directory
 3. Restart KOReader completely
 4. Check KOReader version (need 2023.10+)

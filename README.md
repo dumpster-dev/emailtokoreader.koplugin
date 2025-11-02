@@ -25,7 +25,7 @@ Automatically download EPUB files from your email directly to your KOReader devi
 
 ## Installation
 
-1. Download `sendtokoreader.koplugin` folder
+1. Download `emailtokoreader.koplugin` folder
 2. Copy to your device's KOReader plugins directory:
    * Kindle: `/mnt/us/koreader/plugins/`
    * Kobo: `/mnt/onboard/.adds/koreader/plugins/`
@@ -193,7 +193,7 @@ If issues persist:
 
 ## Configuration File
 
-Settings are stored in: `plugins/sendtokoreader.koplugin/config.lua`
+Settings are stored in: `plugins/emailtokoreader.koplugin/config.lua`
 
 You can edit manually if needed:
 

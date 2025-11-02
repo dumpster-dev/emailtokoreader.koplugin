@@ -12,7 +12,7 @@
 
 ### 2. Install Plugin (1 minute)
 
-1. Copy `sendtokoreader.koplugin` folder to:
+1. Copy `emailtokoreader.koplugin` folder to:
    * Kindle: `/mnt/us/koreader/plugins/`
    * Kobo: `/mnt/onboard/.adds/koreader/plugins/`
 2. Restart KOReader

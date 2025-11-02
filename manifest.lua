@@ -1,5 +1,5 @@
 return {
-    name = "sendtokoreader",
-    fullname = "Send-to-KOReader",
+    name = "emailtokoreader",
+    fullname = "Mail to KOReader",
     description = "Fetch EPUB files from email inbox",
 }
