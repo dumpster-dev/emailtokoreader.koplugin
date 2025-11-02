@@ -41,9 +41,3 @@ Explore the full guides in the Wiki:
 - [Privacy & Security](https://github.com/marinov752/emailtokoreader.koplugin/wiki/Privacy-and-Security)  
 - [Changelog](https://github.com/marinov752/emailtokoreader.koplugin/wiki/Changelog)  
 - [License & Credits](https://github.com/marinov752/emailtokoreader.koplugin/wiki/License-and-Credits)  
-
----
-
-## License & Credits
-Developed for the **KOReader** community by [Marin Marinov](https://github.com/marinov752).  
-[License & Credits →](https://github.com/marinov752/emailtokoreader.koplugin/wiki/License-and-Credits)
