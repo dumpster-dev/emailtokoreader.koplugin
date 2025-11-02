@@ -14,7 +14,7 @@ Automatically download EPUB files from your email directly to your KOReader devi
 - [Email Integration](https://github.com/marinov752/emailtokoreader.koplugin/wiki/Usage) — fetch EPUB attachments directly from your inbox  
 - Multi-file downloads — handle multiple EPUBs per email  
 - Multi-email processing — up to 3 unread emails per check  
-- Large file support — up to **3.5 MB** per EPUB  
+- File support — up to **3.5 MB** per EPUB  
 - Auto-refresh — updates file browser automatically  
 - [In-App Configuration](https://github.com/marinov752/emailtokoreader.koplugin/wiki/Configuration) — no manual file editing  
 - [Debug Mode](https://github.com/marinov752/emailtokoreader.koplugin/wiki/Advanced-Settings) — optional detailed logging  
