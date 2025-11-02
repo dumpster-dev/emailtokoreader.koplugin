@@ -50,7 +50,6 @@ First stable release of Email to KOReader plugin.
 
 ### Documentation
 - README.md with full documentation
-- QUICKSTART.md for fast setup
 - LICENSE (MIT)
 - Example configuration file
 
