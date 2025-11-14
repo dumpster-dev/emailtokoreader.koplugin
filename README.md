@@ -5,7 +5,7 @@ Automatically download EPUB files from your email directly to your KOReader devi
 ---
 
 ## Version
-**1.0.0** – Initial release  
+**1.1.1**
 [View Changelog](https://github.com/marinov752/emailtokoreader.koplugin/wiki/Changelog)
 
 ---
