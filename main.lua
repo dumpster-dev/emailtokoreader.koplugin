@@ -239,7 +239,7 @@ function emailtokoreader:addToMainMenu(menu_items)
                 text = _("About"),
                 callback = function()
                     UIManager:show(InfoMessage:new{
-                        text = _("Email to KOReader v1.0.0\n\nAutomatically download EPUB files from email.\n\nFeatures:\n* Multiple files per email\n* Multiple emails support\n* Large file handling (up to 3.5MB)\n* Auto-refresh file browser\n* Debug mode\n* In-app configuration\n* Cyrillic filename support\n* Auto-transliteration\n* Safe fallback path"),
+                        text = _("Email to KOReader v1.1.1\n\nAutomatically download EPUB files from email.\n\nFeatures:\n* Multiple files per email\n* Multiple emails support\n* Large file handling (up to 3.5MB)\n* Auto-refresh file browser\n* Debug mode\n* In-app configuration\n* Cyrillic filename support\n* Auto-transliteration\n* Safe fallback path"),
                         timeout = 5,
                     })
                 end,
@@ -302,7 +302,7 @@ function emailtokoreader:showSettings()
                     text = _("Save"),
                     is_enter_default = true,
                     callback = function()
-                        local fields = MultiInputDialog:getFields()
+                        local fields = settings_dialog:getFields()
                         
                         -- Update config
                         config.email = fields[1]
@@ -402,11 +402,56 @@ function emailtokoreader:checkInbox()
         timeout = 2,
     })
     
+							 
+						 
+																						  
+	
+									  
+																   
+										  
+	 
+	
+												
+									  
+								
+								   
+	
+										  
+													
+											
+								
+								
+								  
+		   
+										
+	   
+	
+								   
+	
+										 
+									   
+											
+															
+												 
+	   
+	
     UIManager:scheduleIn(1, function()
+								 
+														
+				  
+		   
+		
         local success, result = pcall(function()
             return self:fetchEmails()
         end)
         
+										
+		
+								 
+										   
+											  
+							
+			  
         if not success then
             UIManager:show(InfoMessage:new{
                 text = _("[ERROR] Error:\n" .. tostring(result)),
@@ -464,6 +509,13 @@ function emailtokoreader:checkInbox()
 end
 
 function emailtokoreader:fetchEmails()
+												 
+													 
+	
+								   
+								   
+																   
+	   
     -- URL decode function (for RFC 2231 encoded filenames)
     local function url_decode(str)
         str = string.gsub(str, "+", " ")
@@ -655,7 +707,14 @@ function emailtokoreader:fetchEmails()
         conn:close()
         return {success = false, error = "Connection failed: " .. tostring(err)}
     end
+	
+							
+					
+													 
+	   
     
+																
+	
     -- SSL wrap
     if config.use_ssl then
         local ssl_ok, ssl = pcall(require, "ssl")
@@ -675,6 +734,13 @@ function emailtokoreader:fetchEmails()
     -- Login
     conn:send(string.format('A001 LOGIN "%s" "%s"\r\n', config.email, config.password))
     
+							
+					
+													 
+	   
+	
+								   
+	
     local login_ok = false
     for i = 1, 5 do
         local line = conn:receive("*l")
@@ -688,7 +754,14 @@ function emailtokoreader:fetchEmails()
         conn:close()
         return {success = false, error = "Login failed"}
     end
+	
+							
+					
+													 
+	   
     
+												  
+	
     -- Select INBOX
     conn:send("A002 SELECT INBOX\r\n")
     for i = 1, 10 do
@@ -710,6 +783,17 @@ function emailtokoreader:fetchEmails()
     
     logger.info("Found", #message_ids, "unseen messages")
     
+							
+					
+													 
+	   
+	
+							 
+											   
+		
+																								
+	   
+	
     -- Limit messages to prevent memory issues
     -- Each large EPUB (2MB+) can be 20K+ lines of base64
     local max_messages = 3
@@ -727,6 +811,14 @@ function emailtokoreader:fetchEmails()
     
     -- Process messages
     for _, msg_id in ipairs(message_ids) do
+								
+										
+						
+														 
+		   
+		
+																							  
+		
         logger.info("Processing message", msg_id)
         conn:send(string.format("A%d FETCH %s BODY[]\r\n", 100 + tonumber(msg_id), msg_id))
         
@@ -959,6 +1051,15 @@ function emailtokoreader:fetchEmails()
         
         -- Process all attachments
         for _, attachment in ipairs(attachments) do
+									
+											
+							
+																						  
+			   
+			
+																						
+															  
+			
             -- Safety check
             if not attachment or not attachment.base64_chunks or #attachment.base64_chunks == 0 then
                 logger.warn("Skipping invalid attachment")
@@ -1043,6 +1144,8 @@ function emailtokoreader:fetchEmails()
     conn:send("A999 LOGOUT\r\n")
     conn:close()
     
+										   
+	
     -- Final cleanup
     collectgarbage("collect")
     
