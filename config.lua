@@ -13,8 +13,11 @@ return {
     
     -- Where to save downloaded EPUB files
     -- Default: /mnt/us/Books/ (Kindle)
-    download_path = "/mnt/us/Books/",
+    download_path = "/mnt/us/books/emailed/",
     
     -- Enable debug mode to save raw email files
     debug_mode = false,
+
+    -- Only process emails addressed to this address (set to nil to allow all)
+    allowed_email = "your-email+koreader@gmail.com",
 }
